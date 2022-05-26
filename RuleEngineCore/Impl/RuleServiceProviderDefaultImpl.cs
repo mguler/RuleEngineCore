@@ -59,7 +59,14 @@ namespace RuleEngineCore.Impl
 
             var ctorArgs = new List<object>();
             var rules = _cache[key];
+            var cancelExecutingNextRule = false;
+            
             rules.ForEach(ruleType => {
+
+                if (cancelExecutingNextRule) 
+                {
+                    return;
+                }
 
                 var ctor = ruleType.GetConstructors().FirstOrDefault();
                 if (ctor == null)
@@ -86,6 +93,7 @@ namespace RuleEngineCore.Impl
 
                 var instance = ctor.Invoke(orderedArgs.ToArray()) as Rule;
                 instance.Apply(args);
+                cancelExecutingNextRule = instance.CancelExecutingNextRule;
                 result.Add(instance);
             });
             return result;

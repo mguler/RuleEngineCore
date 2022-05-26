@@ -24,8 +24,7 @@ namespace TestProject1
 
             var args = new object[] { "...", 110, true };
 
-
-var result =            service.ApplyRules(methodInfo, args.ToArray());
+            var result = service.ApplyRules(methodInfo, args.ToArray());
 
         }
     }
