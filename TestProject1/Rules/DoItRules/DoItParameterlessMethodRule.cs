@@ -16,7 +16,7 @@ namespace TestProject1.Rules.DoItRules
             _dependency3 = dependency3;
 
             Define(() => {
-                CancelExecutingNextRule = true;
+                CancelRuleExecution = true;
             });   
         }
     }
