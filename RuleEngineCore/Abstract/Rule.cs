@@ -6,7 +6,7 @@ namespace RuleEngineCore.Abstract
 {
     public abstract class Rule : IRule
     {
-        public bool CancelExecutingNextRule { get; protected set; }
+        public bool CancelRuleExecution { get; protected set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
