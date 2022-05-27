@@ -92,7 +92,17 @@ namespace RuleEngineCore.Impl
                 }
 
                 var instance = ctor.Invoke(orderedArgs.ToArray()) as Rule;
-                instance.Apply(args);
+
+                try
+                {
+                    instance.Apply(args);
+
+                }
+                catch (Exception ex)
+                {
+                    throw new RuleEngineException(ex, instance.GetType(), args);
+                }
+
                 cancelRuleExecution = instance.CancelRuleExecution;
                 result.Add(instance);
             });
