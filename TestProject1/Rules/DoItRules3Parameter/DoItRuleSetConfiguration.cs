@@ -9,6 +9,7 @@ namespace TestProject1.Rules.DoItRules
             ruleSetConfiguration
                 .For<TestController1>(t => t.DoSomething(default(string), default(int), default(bool)))
                 .AddRule<DoItDateTimeCheckRule>()
+                .AddRule<DoItParameterlessMethodRule>()
                 .AddRule<AnotherRuleForDoItDateTimeCheck>()
                 .AddRule<ThirdRuleForDoItDateTimeCheck>();
               
