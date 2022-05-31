@@ -1,6 +1,6 @@
 ﻿namespace TestProject1.Dependencies
 {
-    public class Dependency2
+    public class Parameter2
     {
     }
 }

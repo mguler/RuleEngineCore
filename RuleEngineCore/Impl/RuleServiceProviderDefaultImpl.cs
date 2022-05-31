@@ -96,11 +96,10 @@ namespace RuleEngineCore.Impl
                 try
                 {
                     instance.Apply(args);
-
                 }
                 catch (Exception ex)
                 {
-                    throw new RuleEngineException(ex, instance.GetType(), args);
+                    throw new RuleEngineException(ex.InnerException, instance.GetType(), args);
                 }
 
                 cancelRuleExecution = instance.CancelRuleExecution;

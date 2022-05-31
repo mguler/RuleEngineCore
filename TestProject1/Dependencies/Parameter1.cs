@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TestProject1.Dependencies
 {
-    public class Dependency5
+    public class Parameter1
     {
     }
 }
